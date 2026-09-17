@@ -1,14 +1,12 @@
-// Student.java
-// this class is just for storing student data
-// name, roll no, and marks in 5 subjects (fixed for now)
+
 
 public class Student {
 
     public String name;
     public int roll;
-    public int marks[] = new int[5]; // sub1,sub2,sub3,sub4,sub5
+    public int marks[] = new int[5]; 
 
-    // constructor
+    
     public Student(String n, int r, int m[]) {
         name = n;
         roll = r;
@@ -17,7 +15,7 @@ public class Student {
         }
     }
 
-    // just prints student info, didnt bother with toString override properly lol
+    
     public void printInfo() {
         System.out.println("Roll No: " + roll);
         System.out.println("Name: " + name);
