@@ -1,6 +1,3 @@
-// Main.java
-// this is the main menu, runs in a loop till user says exit
-// Student Grade Management System - college mini project
 
 import java.util.*;
 
@@ -12,7 +9,7 @@ public class Main {
         StudentManager mgr = new StudentManager();
         String filename = "students.txt";
 
-        // try to load old data if it exists
+        
         mgr.loadFromFile(filename);
 
         int ch = 0;
@@ -28,11 +25,11 @@ public class Main {
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
-            // not checking if input is actually a number, keeping it simple
+            
             ch = sc.nextInt();
 
             if(ch == 1) {
-                sc.nextLine(); // clear buffer
+                sc.nextLine(); 
                 System.out.print("Enter Name: ");
                 String name = sc.nextLine();
                 System.out.print("Enter Roll No: ");
@@ -80,7 +77,7 @@ public class Main {
                 mgr.saveToFile(filename);
             }
             else if(ch == 6) {
-                // save automatically before exiting too, just in case
+                
                 mgr.saveToFile(filename);
                 System.out.println("saving data and exiting... bye!");
             }
