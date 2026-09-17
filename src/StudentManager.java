@@ -1,16 +1,12 @@
-// StudentManager.java
-// manages all the students, add/search/delete/display
-// using a normal array not arraylist bcoz thats what i learned first
-
 import java.io.*;
 import java.util.*;
 
 public class StudentManager {
 
-    Student studentList[] = new Student[100]; // max 100 students, should be enough
-    int count = 0; // how many students currently added
+    Student studentList[] = new Student[100]; 
+    int count = 0; 
 
-    // add a new student to the array
+    
     public void addStudent(Student s) {
         if(count >= 100) {
             System.out.println("sorry list is full cant add more students");
@@ -21,17 +17,17 @@ public class StudentManager {
         System.out.println("student added successfully!");
     }
 
-    // search student by roll no, just looping through everything
+    
     public Student searchStudent(int roll) {
         for(int i=0; i<count; i++) {
             if(studentList[i].roll == roll) {
                 return studentList[i];
             }
         }
-        return null; // not found
+        return null; 
     }
 
-    // delete student by roll no, shifting everything manually
+    
     public boolean deleteStudent(int roll) {
         int index = -1;
         for(int i=0; i<count; i++) {
@@ -41,9 +37,9 @@ public class StudentManager {
             }
         }
         if(index == -1) {
-            return false; // didnt find it
+            return false; 
         }
-        // shift all elements after index one step back
+        
         for(int i=index; i<count-1; i++) {
             studentList[i] = studentList[i+1];
         }
@@ -52,7 +48,7 @@ public class StudentManager {
         return true;
     }
 
-    // show everyone in the list
+    
     public void displayAll() {
         if(count == 0) {
             System.out.println("no students yet, add some first");
@@ -71,7 +67,7 @@ public class StudentManager {
         System.out.println("---------------------------");
     }
 
-    // saves all student data to a text file, comma separated, very basic
+    
     public void saveToFile(String filename) {
         try {
             FileWriter fw = new FileWriter(filename);
@@ -94,11 +90,11 @@ public class StudentManager {
         }
     }
 
-    // loads student data back from the text file when program starts
+    
     public void loadFromFile(String filename) {
         File f = new File(filename);
         if(!f.exists()) {
-            // no file yet, thats fine, just skip loading
+           
             return;
         }
         try {
@@ -107,7 +103,7 @@ public class StudentManager {
             String line;
             while((line = br.readLine()) != null) {
                 if(line.trim().equals("")) {
-                    continue; // skip empty lines
+                    continue; 
                 }
                 String parts[] = line.split(",");
                 int roll = Integer.parseInt(parts[0]);
